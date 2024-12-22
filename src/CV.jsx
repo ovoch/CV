@@ -53,20 +53,20 @@ const Resume = React.forwardRef((props, ref) => {
         <p>
           Проект интернет магазина с фильтрами, поиском. При написании использовал React JS, TailwindCSS. 
           <br />
-          <a href="https://github.com/yourusername/lamoda" target="_blank" rel="noopener noreferrer">Ссылка на GitHub</a>
+          <a href="https://github.com/ovoch/Pet-projects/tree/main/lamoda" target="_blank" rel="noopener noreferrer">Ссылка на GitHub</a>
         </p>
         <h4>Notion</h4>
         <p>
           Проект с созданием заметок и регистрацией, которые отправляются на сервер. При создании использовал 
           React JS, json-server, redux, tailwindCSS.
           <br />
-          <a href="https://github.com/yourusername/notion" target="_blank" rel="noopener noreferrer">Ссылка на GitHub</a>
+          <a href="https://github.com/ovoch/Pet-projects/tree/main/redux" target="_blank" rel="noopener noreferrer">Ссылка на GitHub</a>
         </p>
         <h4>To do list</h4>
         <p>
           Проект списка сделанных заданий с использованием React JS.
           <br />
-          <a href="https://github.com/yourusername/todo-list" target="_blank" rel="noopener noreferrer">Ссылка на GitHub</a>
+          <a href="https://github.com/ovoch/Pet-projects/tree/main/to%20do%20list" target="_blank" rel="noopener noreferrer">Ссылка на GitHub</a>
         </p>
       </section>
     </div>
