@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
+import html2pdf from "html2pdf.js";
 import './CV.css'; 
 
 const Resume = React.forwardRef((props, ref) => {
@@ -77,28 +76,20 @@ const App = () => {
   const componentRef = useRef();
 
   const handleDownloadPDF = () => {
-    html2canvas(componentRef.current).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      const imgWidth = 190; // Ширина изображения в PDF
-      const pageHeight = pdf.internal.pageSize.height;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
+    const element = componentRef.current;
+    const options = {
+      margin: 1,
+      filename: 'resume.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+    };
 
-      let position = 0;
-
-      pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
-
-      pdf.save("resume.pdf");
-    });
+    
+    html2pdf()
+      .from(element)
+      .set(options)
+      .save();
   };
 
   return (
@@ -122,5 +113,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
